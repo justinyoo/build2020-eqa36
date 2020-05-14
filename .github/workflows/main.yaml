@@ -2,6 +2,11 @@ name: Main workflow
 
 on: push
 
+env:
+  STEP_1: 'This is step 1'
+  STEP_2: 'This is step 2'
+  STEP_3: 'This is step 3'
+
 jobs:
   build_app:
     name: Build
@@ -12,12 +17,12 @@ jobs:
     - name: Step 1
       shell: bash
       run: |
-        echo "This is step 1"
+        echo $STEP_1
 
     - name: Step 2
       shell: bash
       run: |
-        echo "This is step 2"
+        echo $STEP_2
 
     # - name: Send a message to Microsoft Teams
     #   uses: aliencube/microsoft-teams-actions@v0.8.0
@@ -40,4 +45,4 @@ jobs:
     - name: Step 3
       shell: bash
       run: |
-        echo "This is step 3"
+        echo $STEP_3

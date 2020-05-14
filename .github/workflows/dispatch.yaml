@@ -2,6 +2,9 @@ name: Dispatch workflow
 
 on: repository_dispatch
 
+env:
+  STEP_4: 'This is step 4'
+
 jobs:
   publish_app:
     name: Publish
@@ -13,7 +16,7 @@ jobs:
     - name: Step 4
       shell: bash
       run: |
-        echo "This is step 4"
+        echo $STEP_4
 
     - name: Send a message to Microsoft Teams
       uses: aliencube/microsoft-teams-actions@v0.8.0
