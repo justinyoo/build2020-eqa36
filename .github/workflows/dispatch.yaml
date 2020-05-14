@@ -8,7 +8,7 @@ env:
 jobs:
   publish_app:
     name: Publish
-    if: github.event.action == "deploy"
+    if: github.event.action == 'deploy'
 
     runs-on: ubuntu-latest
 
