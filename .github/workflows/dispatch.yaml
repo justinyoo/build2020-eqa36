@@ -7,26 +7,13 @@ jobs:
     name: Publish
     if: github.event.action == "deploy"
 
-    strategy:
-      matrix:
-        os: [ 'windows-latest' ]
-        dotnet: [ '3.1.201' ]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: Build
-        path: output
-
-    - name: Deploy Function app
-      uses: Azure/functions-action@v1
-      with:
-        app-name: ${{ secrets.AZURE_FUNCTIONAPP_NAME }}
-        package: './output'
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+    - name: Step 4
+      shell: bash
+      run: |
+        echo "This is step 4"
 
     - name: Send a message to Microsoft Teams
       uses: aliencube/microsoft-teams-actions@v0.8.0
