@@ -24,25 +24,25 @@ jobs:
       run: |
         echo $STEP_2
 
-    # - name: Send a message to Microsoft Teams
-    #   uses: aliencube/microsoft-teams-actions@v0.8.0
-    #   with:
-    #     webhook_uri: ${{ secrets.TEAMS_WEBHOOK_URI }}
-    #     title: ''
-    #     summary: 'Artifact is ready to deploy'
-    #     text: ''
-    #     theme_color: ''
-    #     sections: '[{ "activityImage": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png", "activityTitle": "Ready to deploy",  "activityText": "Artifact is ready to deploy" }]'
-    #     actions: '[{ "@type": "HttpPOST", "name": "Publish", "target": "${{ secrets.ACTION_TARGET_URI }}", "headers": [{ "name": "x-functions-key", "value": "${{ secrets.ACTION_TARGET_AUTH_KEY }}" }], "bodyContentType": "application/json", "body": "{ \"event_type\": \"deploy\", \"client_payload\": { \"artifact\": { \"name\": \"Build 2020 Demo App\" }, \"repository\": { \"owner\": \"justinyoo\", \"name\": \"build2020-eqa36\" } } }" }]'
+    - name: Send a message to Microsoft Teams
+      uses: aliencube/microsoft-teams-actions@v0.8.0
+      with:
+        webhook_uri: ${{ secrets.TEAMS_WEBHOOK_URI }}
+        title: ''
+        summary: 'Artifact is ready to deploy'
+        text: ''
+        theme_color: ''
+        sections: '[{ "activityImage": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png", "activityTitle": "Ready to deploy",  "activityText": "Artifact is ready to deploy" }]'
+        actions: '[{ "@type": "HttpPOST", "name": "Publish", "target": "${{ secrets.ACTION_TARGET_URI }}", "headers": [{ "name": "x-functions-key", "value": "${{ secrets.ACTION_TARGET_AUTH_KEY }}" }], "bodyContentType": "application/json", "body": "{ \"event_type\": \"deploy\", \"client_payload\": { \"artifact\": { \"name\": \"Build 2020 Demo App\" }, \"repository\": { \"owner\": \"justinyoo\", \"name\": \"build2020-eqa36\" } } }" }]'
 
-  publish_app:
-    name: Publish
-    needs: build_app
+#  publish_app:
+#    name: Publish
+#    needs: build_app
 
-    runs-on: ubuntu-latest
+#    runs-on: ubuntu-latest
 
-    steps:
-    - name: Step 3
-      shell: bash
-      run: |
-        echo $STEP_3
+#    steps:
+#    - name: Step 3
+#      shell: bash
+#      run: |
+#        echo $STEP_3
