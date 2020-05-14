@@ -13,7 +13,7 @@ namespace Build2020Eqa36.FunctionApp
 {
     public static class HttpTrigger
     {
-        [FunctionName("HttpTrigger")]
+        [FunctionName(nameof(HttpTrigger.Run))]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
